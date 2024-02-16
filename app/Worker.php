@@ -4,7 +4,7 @@ declare(strict_types= 1);
 
 namespace App;
 
-abstract class Worker implements \App\IWorker {
+abstract class Worker implements IWorker {
 
     private string $name = "";
     private string $status = 'worker';
@@ -25,6 +25,10 @@ abstract class Worker implements \App\IWorker {
     }
     public function getStatus(): string {
         return $this->status;
+    }
+
+    public function getHours(): array {
+        return $this->hours;
     }
 }
 
