@@ -1,7 +1,11 @@
 {
     "autoload": {
         "psr-4": {
-            "App\\": "app/*"
+            "App\\": "app",
+            "App2\\": "app2"
         }
-    }
+    },
+  "require": {
+    "ext-http": "*"
+  }
 }
