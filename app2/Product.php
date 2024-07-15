@@ -6,21 +6,14 @@ namespace App2;
 
 class Product
 {
-    public ?string $title;
-    public int|float $price;
 
-
-    public function __construct(string $title, int $price)
-    {
-        $this->title = $title;
-        $this->price = $price;
-    }
+    public function __construct(public ?string $title, public int $price = 1){}
 
     /**
      * @param string $currency
      * @return string
      */
-    public function getPrice( string $currency = '$'): string
+    final public function getPrice(string $currency = '$'): string
     {
         return $currency . $this->price / 100;
     }

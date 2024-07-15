@@ -1,31 +1,40 @@
 <?php
 
+
 namespace App2;
-use App2\Product;
+
+error_reporting(-1);
+
+
 class Cart
 {
+    /**
+     * @var array<Product>
+     */
     public array $cartData = [];
 
 
-    final public function add(array ...$products): void
+    final public function add(Product ...$products): static
     {
         foreach ($products as $product) {
             $this->cartData[] = $product;
         }
+
+        return $this;
     }
 
-    final public function getTotal(): int
+    final public function getTotal(string $currency = '$'): int
     {
         $total = 0;
         foreach ($this->cartData as $product) {
-            $total += $product->getPrice();
+            $res = str_replace($currency, '', $product->getPrice($currency) . ' ');
+            $total += (int)$res;
         }
+
         return $total;
     }
 
 }
 
-$cart = new Cart();
-$cart->add([new Product('Laptop', 245), new Product('Phone', 200)]);
-var_dump($cart);
+
 
