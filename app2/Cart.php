@@ -6,12 +6,13 @@ namespace App2;
 error_reporting(-1);
 
 
-class Cart
+ class Cart
 {
     /**
      * @var array<Product>
      */
     public array $cartData = [];
+    private string $id = '#4455332';
 
 
     final public function add(Product ...$products): static
@@ -32,6 +33,24 @@ class Cart
         }
 
         return $total;
+    }
+
+    /**
+     * @param string $id
+     * @return Cart
+     */
+    final public function setId(string $id): Cart
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    final public function getId(): string
+    {
+        return $this->id;
     }
 
 }

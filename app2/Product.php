@@ -7,6 +7,11 @@ namespace App2;
 class Product
 {
 
+    /**
+     * Summary of __construct
+     * @param mixed $title
+     * @param int $price
+     */
     public function __construct(public ?string $title, public int $price = 1){}
 
     /**
